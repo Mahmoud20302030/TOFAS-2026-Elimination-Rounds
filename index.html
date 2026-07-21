@@ -1,9 +1,23 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>منصة للتدريب - تصفيات TOFAS</title>
+    
+    <!-- === ما لا تراه: وسوم السيو (SEO) والمشاركة العالمية (Open Graph) === -->
+    <meta name="description" content="منصة أشرقت للتدريب - المراجعة الشاملة لتصفيات TOFAS المستوى الثالث (JavaScript) بإشراف أ. محمود محمد عبد الوهاب.">
+    <meta name="keywords" content="TOFAS, JavaScript, منصة أشرقت, برمجة, تدريب, مسابقة توفاس, الدقهلية, محمود محمد">
+    <meta name="author" content="Mahmoud Mohamed Abdel Wahab El Sayed Issa">
+    
+    <!-- إعدادات المشاركة على منصات التواصل (Social Media Cards) -->
+    <meta property="og:title" content="منصة أشرقت للتدريب | تصفيات TOFAS العالمية">
+    <meta property="og:description" content="اختبر مهاراتك في JavaScript واستعد لتصفيات TOFAS الدولية. منصة تفاعلية متكاملة.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://mahmoudissa-edu.github.io/Ashraqat-TOFAS-L3-Global/">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
+    <!-- ========================================================= -->
+
+    <title>منصة أشرقت للتدريب - تصفيات TOFAS</title>
     <style>
         :root {
             /* الألوان الأساسية للوضع الليلي (الافتراضي) */
@@ -108,7 +122,7 @@
         .container {
             flex: 1;
             width: 95%;
-            max-width: 1200px; /* عريض ليناسب السبورات الذكية */
+            max-width: 1200px;
             margin: 40px auto;
             position: relative;
         }
@@ -132,10 +146,30 @@
         }
 
         #welcome-screen p {
-            font-size: clamp(1.2rem, 1.5vw + 0.5rem, 1.8rem);
+            font-size: clamp(1.2rem, 1.5vw + 0.5rem, 1.5rem);
             line-height: 1.8;
             color: var(--text-muted);
-            margin-bottom: 40px;
+            margin-bottom: 30px;
+        }
+
+        .student-input {
+            width: 80%;
+            max-width: 400px;
+            padding: 15px 20px;
+            border-radius: 30px;
+            border: 2px solid var(--primary);
+            background: var(--option-bg);
+            color: var(--text-main);
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            text-align: center;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .student-input:focus {
+            box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
+            transform: scale(1.02);
         }
 
         .btn {
@@ -247,7 +281,7 @@
         }
 
         .option-lbl input {
-            margin-left: 15px; /* RTL Margin */
+            margin-left: 15px;
             transform: scale(1.8);
             accent-color: var(--primary);
             cursor: pointer;
@@ -326,6 +360,15 @@
             font-size: clamp(1.4rem, 2vw + 0.5rem, 2rem);
             line-height: 2;
             margin-bottom: 50px;
+        }
+
+        .dynamic-student-name {
+            font-size: clamp(2rem, 3vw + 1rem, 3rem);
+            color: var(--primary);
+            font-weight: bold;
+            display: block;
+            margin: 15px 0;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
 
         .cert-score {
@@ -488,7 +531,7 @@
 
     <header class="main-header">
         <div class="header-titles">
-            <h1>منصة أشرقت للتدريب</h1>
+            <h1>منصة أشرقت للتدريب - الدقهلية</h1>
             <h3>المراجعة الشاملة لتصفيات TOFAS المستوى الثالث - JavaScript</h3>
         </div>
         <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()">☀️ وضع النهار</button>
@@ -501,9 +544,12 @@
             <h2>مرحباً بك في منصة التدريب الاحترافية العالمية</h2>
             <p>
                 تم تصميم هذه المنصة لتأهيلك لتصفيات TOFAS الدولية والسفر لليابان <br><br>
-                <strong>إشراف عام:</strong> أستاذ البرمجة والذكاء الاصطناعي محمود محمد.<br>
+                <strong>إشراف عام:</strong> أستاذ البرمجة والذكاء الاصطناعي الأستاذ / محمود محمد عبد الوهاب السيد عيسى.<br>
                 يحتوي الاختبار على 60 سؤالاً حقيقياً يغطي كافة الأفكار، مع شرح التركات والملاحظات الهامة لكل سؤال.
             </p>
+            
+            <input type="text" id="student-name-input" class="student-input" placeholder="أدخل اسمك الثلاثي لاستخراج الشهادة..." autocomplete="off">
+            <br>
             <button class="btn" onclick="startQuiz()">ابدأ الاختبار الآن</button>
         </div>
 
@@ -537,7 +583,9 @@
                 <h1>شهادة إتمام التدريب</h1>
                 <h2>TOFAS LEVEL 3 - JavaScript</h2>
                 <div class="cert-content">
-                    تشهد <strong>منصة أشرقت للتدريب</strong> بأن المتدرب قد اجتاز بنجاح المراجعة الشاملة لتصفيات TOFAS وحصل على تقييم احترافي بنسبة:<br>
+                    تشهد <strong>منصة أشرقت للتدريب</strong> بأن المتدرب/ـة:<br>
+                    <span class="dynamic-student-name" id="cert-student-name"></span>
+                    قد اجتاز بنجاح المراجعة الشاملة لتصفيات TOFAS وحصل على تقييم احترافي بنسبة:<br>
                     <div class="cert-score" id="final-score">100%</div>
                     هذه الشهادة مؤهلة لاجتياز التصفيات الرسمية باقتدار وتميز.
                 </div>
@@ -668,10 +716,15 @@
             progress: document.getElementById('progress'),
             qCounter: document.getElementById('q-counter'),
             scoreCounter: document.getElementById('score-counter'),
-            finalScore: document.getElementById('final-score')
+            finalScore: document.getElementById('final-score'),
+            certStudentName: document.getElementById('cert-student-name')
         };
 
         function startQuiz() {
+            // التقاط اسم الطالب ووضعه في الشهادة
+            const inputName = document.getElementById('student-name-input').value.trim();
+            ui.certStudentName.textContent = inputName === "" ? "متدرب مبدع" : inputName;
+
             screens.welcome.style.display = 'none';
             screens.quiz.style.display = 'block';
             loadQuestion();
@@ -769,4 +822,3 @@
     </script>
 </body>
 </html>
-
