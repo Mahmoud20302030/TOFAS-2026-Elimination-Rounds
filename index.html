@@ -3,442 +3,367 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
-    <!-- === ما لا تراه: وسوم السيو (SEO) والمشاركة العالمية (Open Graph) === -->
-    <meta name="description" content="منصة أشرقت للتدريب - المراجعة الشاملة لتصفيات TOFAS المستوى الثالث (JavaScript) بإشراف أ. محمود محمد عبد الوهاب.">
-    <meta name="keywords" content="TOFAS, JavaScript, منصة أشرقت, برمجة, تدريب, مسابقة توفاس, الدقهلية, محمود محمد">
-    <meta name="author" content="Mahmoud Mohamed Abdel Wahab El Sayed Issa">
-    
-    <!-- إعدادات المشاركة على منصات التواصل (Social Media Cards) -->
-    <meta property="og:title" content="منصة أشرقت للتدريب | تصفيات TOFAS العالمية">
-    <meta property="og:description" content="اختبر مهاراتك في JavaScript واستعد لتصفيات TOFAS الدولية. منصة تفاعلية متكاملة.">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://mahmoudissa-edu.github.io/Ashraqat-TOFAS-L3-Global/">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80">
-    <!-- ========================================================= -->
-
-    <title>منصة أشرقت للتدريب - تصفيات TOFAS</title>
+    <title>محاكاة تصفيات توفاس - البرمجة والذكاء الاصطناعي</title>
     <style>
         :root {
-            /* الألوان الأساسية للوضع الليلي (الافتراضي) */
-            --primary: #00FFFF; /* Cyan */
-            --secondary: #007BFF; /* Bright Blue */
-            --bg-gradient: linear-gradient(135deg, #020c1b 0%, #0A192F 100%);
-            --card-bg: rgba(16, 33, 62, 0.85);
-            --text-main: #E6F1FF;
-            --text-muted: #8892b0;
-            --success: #00FF88;
-            --danger: #FF3366;
-            --option-bg: #112240;
-            --option-hover: #233554;
-            --border-color: #233554;
-            --cert-bg: #ffffff;
-            --cert-text: #000000;
+            --primary-color: #00E5FF; /* سماوي زاهي */
+            --secondary-color: #007BFF; /* أزرق زاهي */
+            --dark-bg: #010a14;
+            --panel-bg: rgba(10, 25, 47, 0.85);
+            --text-light: #e6f1ff;
+            --success: #00e676;
+            --danger: #ff1744;
+            --primary-glow: rgba(0, 229, 255, 0.6);
         }
 
-        /* الوضع النهاري */
-        body.light-mode {
-            --primary: #007BFF;
-            --secondary: #00B3B3;
-            --bg-gradient: linear-gradient(135deg, #e0eaf5 0%, #f4f7f6 100%);
-            --card-bg: rgba(255, 255, 255, 0.95);
-            --text-main: #0a192f;
-            --text-muted: #4a5568;
-            --success: #00A355;
-            --danger: #D92550;
-            --option-bg: #f8fafc;
-            --option-hover: #e2e8f0;
-            --border-color: #cbd5e1;
-            --cert-bg: #fdfdfd;
-            --cert-text: #0a192f;
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
 
         body {
-            margin: 0;
-            padding: 0;
-            background: var(--bg-gradient);
-            color: var(--text-main);
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-light);
             min-height: 100vh;
             display: flex;
             flex-direction: column;
-            transition: background 0.4s ease, color 0.4s ease;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(circle at 15% 50%, rgba(0, 123, 255, 0.1), transparent 25%),
+                radial-gradient(circle at 85% 30%, rgba(0, 229, 255, 0.1), transparent 25%);
         }
 
-        /* Header */
-        header {
-            background: var(--card-bg);
-            padding: 20px 40px;
-            border-bottom: 2px solid var(--secondary);
-            box-shadow: 0 4px 20px rgba(0, 123, 255, 0.15);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 20px;
-            transition: background 0.4s ease;
+        /* خلفية الجزيئات التفاعلية */
+        #particles-js {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            z-index: -1;
         }
 
-        .header-titles {
-            flex: 1;
-        }
-
-        header h1 {
-            margin: 0;
-            font-size: clamp(1.8rem, 2.5vw + 1rem, 3rem);
-            color: var(--primary);
-            text-shadow: 0 0 5px rgba(0, 255, 255, 0.2);
-        }
-
-        header h3 {
-            margin: 10px 0 0 0;
-            font-size: clamp(1rem, 1.2vw + 0.8rem, 1.5rem);
-            color: var(--text-muted);
-            font-weight: normal;
-        }
-
-        .theme-btn {
-            background: var(--option-bg);
-            color: var(--text-main);
-            border: 2px solid var(--primary);
-            padding: 10px 20px;
-            border-radius: 30px;
-            cursor: pointer;
-            font-size: 1.2rem;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            transition: all 0.3s;
-        }
-
-        .theme-btn:hover {
-            background: var(--primary);
-            color: #fff;
-            transform: scale(1.05);
-        }
-
-        /* Main Container - Optimized for Whiteboards & Desktop */
         .container {
-            flex: 1;
-            width: 95%;
-            max-width: 1200px;
+            max-width: 900px;
             margin: 40px auto;
-            position: relative;
-        }
-
-        /* Welcome Screen */
-        #welcome-screen {
-            text-align: center;
-            background: var(--card-bg);
-            padding: clamp(30px, 5vw, 60px);
-            border-radius: 15px;
-            border: 1px solid var(--secondary);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            padding: 30px;
+            background: var(--panel-bg);
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 123, 255, 0.2), inset 0 0 20px rgba(0, 229, 255, 0.05);
             backdrop-filter: blur(10px);
-            transition: background 0.4s;
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            z-index: 10;
         }
 
-        #welcome-screen h2 {
-            font-size: clamp(2rem, 3vw + 1rem, 3.5rem);
-            color: var(--primary);
+        h1, h2, h3 {
+            text-align: center;
+            color: var(--primary-color);
+            text-shadow: 0 0 10px var(--primary-glow);
             margin-bottom: 20px;
         }
 
-        #welcome-screen p {
-            font-size: clamp(1.2rem, 1.5vw + 0.5rem, 1.5rem);
-            line-height: 1.8;
-            color: var(--text-muted);
-            margin-bottom: 30px;
+        /* شاشة البداية */
+        #start-screen, #quiz-screen, #result-screen, #certificate-screen {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
         }
 
-        .student-input {
-            width: 80%;
+        #start-screen.active, #quiz-screen.active, #result-screen.active, #certificate-screen.active {
+            display: flex;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .input-group {
+            width: 100%;
             max-width: 400px;
-            padding: 15px 20px;
-            border-radius: 30px;
-            border: 2px solid var(--primary);
-            background: var(--option-bg);
-            color: var(--text-main);
-            font-size: 1.2rem;
-            margin-bottom: 30px;
+            margin: 20px 0;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 15px;
+            border-radius: 10px;
+            border: 2px solid var(--secondary-color);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            font-size: 1.1rem;
             text-align: center;
             outline: none;
-            transition: all 0.3s ease;
+            transition: all 0.3s;
         }
 
-        .student-input:focus {
-            box-shadow: 0 0 15px rgba(0, 255, 255, 0.4);
-            transform: scale(1.02);
+        input[type="text"]:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 15px var(--primary-glow);
         }
 
         .btn {
-            background: linear-gradient(45deg, var(--secondary), var(--primary));
-            color: #fff;
+            padding: 15px 40px;
             border: none;
-            padding: 15px 50px;
-            font-size: clamp(1.2rem, 1.5vw + 0.5rem, 1.8rem);
-            font-weight: bold;
             border-radius: 50px;
+            background: linear-gradient(45deg, var(--secondary-color), var(--primary-color));
+            color: white;
+            font-size: 1.2rem;
+            font-weight: bold;
             cursor: pointer;
-            transition: transform 0.3s, box-shadow 0.3s;
-            box-shadow: 0 5px 15px rgba(0, 123, 255, 0.3);
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+            transition: all 0.3s;
+            box-shadow: 0 5px 15px rgba(0, 229, 255, 0.4);
+            margin-top: 15px;
         }
 
         .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 123, 255, 0.5);
+            transform: scale(1.05) translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0, 229, 255, 0.6);
         }
 
-        .btn:disabled {
-            background: var(--border-color);
-            color: var(--text-muted);
-            cursor: not-allowed;
-            transform: none;
-            box-shadow: none;
-        }
-
-        /* Quiz Section */
-        #quiz-screen {
-            display: none;
-            background: var(--card-bg);
-            padding: clamp(20px, 4vw, 50px);
-            border-radius: 15px;
-            border: 1px solid var(--secondary);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            transition: background 0.4s;
-        }
-
-        .progress-bar {
+        /* شاشة الاختبار */
+        .quiz-header {
+            display: flex;
+            justify-content: space-between;
             width: 100%;
-            height: 12px;
-            background: var(--border-color);
-            border-radius: 6px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0, 229, 255, 0.3);
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .timer {
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .progress-container {
+            width: 100%;
+            height: 10px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 5px;
             margin-bottom: 30px;
             overflow: hidden;
         }
 
-        .progress-fill {
+        .progress-bar {
             height: 100%;
-            background: var(--primary);
+            background: linear-gradient(90deg, var(--secondary-color), var(--primary-color));
             width: 0%;
-            transition: width 0.4s ease-out;
-        }
-
-        .quiz-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 30px;
-            font-size: clamp(1.2rem, 1.5vw + 0.5rem, 1.6rem);
-            color: var(--secondary);
-            font-weight: bold;
+            transition: width 0.4s ease;
         }
 
         .question-text {
-            font-size: clamp(1.5rem, 2vw + 1rem, 2.2rem);
-            margin-bottom: 30px;
+            font-size: 1.4rem;
+            margin-bottom: 25px;
             line-height: 1.6;
+            text-align: right;
+            width: 100%;
+            background: rgba(0,0,0,0.3);
+            padding: 20px;
+            border-radius: 10px;
+            border-right: 4px solid var(--primary-color);
         }
 
-        pre {
-            background: #020c1b;
-            color: #64ffda;
-            padding: 20px;
-            border-radius: 8px;
-            border-right: 5px solid var(--primary);
-            font-family: 'Courier New', Courier, monospace;
+        .code-block {
             direction: ltr;
             text-align: left;
-            font-size: clamp(1.2rem, 1.5vw + 0.5rem, 1.8rem);
+            background: #0d1117;
+            padding: 15px;
+            border-radius: 8px;
+            font-family: monospace;
+            color: #58a6ff;
+            margin: 15px 0;
             overflow-x: auto;
-            box-shadow: inset 0 0 10px rgba(0,0,0,0.5);
+            border: 1px solid #30363d;
         }
 
         .options-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+            grid-template-columns: 1fr;
+            gap: 15px;
+            width: 100%;
         }
 
-        .option-lbl {
-            background: var(--option-bg);
-            padding: 20px;
-            border-radius: 12px;
-            border: 2px solid var(--border-color);
-            font-size: clamp(1.2rem, 1.5vw + 0.5rem, 1.6rem);
+        .option {
+            background: rgba(0, 123, 255, 0.1);
+            border: 2px solid var(--secondary-color);
+            padding: 15px 20px;
+            border-radius: 10px;
             cursor: pointer;
             transition: all 0.2s;
-            display: flex;
-            align-items: center;
+            font-size: 1.1rem;
+            text-align: right;
         }
 
-        .option-lbl:hover {
-            background: var(--option-hover);
-            border-color: var(--primary);
+        .option:hover {
+            background: rgba(0, 229, 255, 0.2);
+            border-color: var(--primary-color);
         }
 
-        .option-lbl input {
-            margin-left: 15px;
-            transform: scale(1.8);
-            accent-color: var(--primary);
-            cursor: pointer;
+        .option.selected {
+            background: rgba(0, 229, 255, 0.3);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px var(--primary-glow);
         }
 
-        .option-lbl.correct {
-            background: rgba(0, 255, 136, 0.1);
+        .option.correct {
+            background: rgba(0, 230, 118, 0.2);
             border-color: var(--success);
             color: var(--success);
-            font-weight: bold;
         }
 
-        .option-lbl.wrong {
-            background: rgba(255, 51, 102, 0.1);
+        .option.wrong {
+            background: rgba(255, 23, 68, 0.2);
             border-color: var(--danger);
-            color: var(--danger);
+            color: #ff8a80;
         }
 
+        /* نافذة الشرح (التركات) */
         .feedback-box {
             display: none;
-            padding: 25px;
-            border-radius: 12px;
-            margin-bottom: 30px;
-            font-size: clamp(1.2rem, 1.5vw + 0.5rem, 1.6rem);
-            line-height: 1.6;
-            animation: fadeIn 0.5s;
-        }
-
-        .feedback-box.show { display: block; }
-        .feedback-box.correct-bg { background: rgba(0, 255, 136, 0.15); border-right: 6px solid var(--success); color: var(--text-main); }
-        .feedback-box.wrong-bg { background: rgba(255, 51, 102, 0.15); border-right: 6px solid var(--danger); color: var(--text-main); }
-
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        .action-row {
-            display: flex;
-            justify-content: flex-end;
-        }
-
-        /* Result Section & Certificate */
-        #result-screen {
-            display: none;
-            text-align: center;
-        }
-
-        .certificate {
-            background: var(--cert-bg);
-            color: var(--cert-text);
-            padding: clamp(30px, 5vw, 60px);
-            border: 15px solid var(--card-bg);
-            outline: 5px solid var(--primary);
+            width: 100%;
+            margin-top: 20px;
+            padding: 20px;
             border-radius: 10px;
-            margin: 0 auto 40px auto;
-            position: relative;
-            background-image: radial-gradient(circle, var(--cert-bg) 50%, rgba(0, 123, 255, 0.05) 100%);
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
-            max-width: 1000px;
-            transition: all 0.4s;
+            background: rgba(0,0,0,0.6);
+            border-right: 4px solid var(--primary-color);
+            animation: fadeIn 0.4s;
         }
 
-        .certificate h1 {
-            color: var(--cert-text);
-            font-size: clamp(2.5rem, 4vw + 1rem, 4rem);
+        .feedback-box h4 {
+            color: var(--primary-color);
             margin-bottom: 10px;
-            font-family: 'Arial Black', sans-serif;
-            letter-spacing: 2px;
         }
 
-        .certificate h2 {
-            color: var(--secondary);
-            font-size: clamp(1.8rem, 2.5vw + 0.5rem, 2.5rem);
+        /* شاشة الشهادة */
+        .certificate {
+            width: 100%;
+            max-width: 800px;
+            padding: 40px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%"><rect width="100%" height="100%" fill="%23fcfcfc"/><path d="M0,0 L100,0 L0,100 Z" fill="%2300bfff" opacity="0.1"/><path d="M100%,100% L100%-100,100% L100%,100%-100 Z" fill="%23007bff" opacity="0.1"/></svg>') no-repeat center center;
+            background-size: cover;
+            background-color: #ffffff;
+            color: #002244;
+            border: 15px solid #0056b3;
+            outline: 5px solid #00bfff;
+            outline-offset: -10px;
+            text-align: center;
+            position: relative;
+            border-radius: 10px;
+        }
+
+        .cert-header {
+            font-size: 2.5rem;
+            color: #0056b3;
+            font-weight: 900;
+            margin-bottom: 10px;
+            font-family: 'Times New Roman', serif;
+        }
+
+        .cert-sub {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 30px;
+        }
+
+        .cert-name {
+            font-size: 3rem;
+            color: #00bfff;
+            font-weight: bold;
+            margin: 20px 0;
+            border-bottom: 2px dashed #0056b3;
+            display: inline-block;
+            padding: 0 40px;
+        }
+
+        .cert-body {
+            font-size: 1.3rem;
+            line-height: 1.8;
             margin-bottom: 40px;
         }
 
-        .cert-content {
-            font-size: clamp(1.4rem, 2vw + 0.5rem, 2rem);
-            line-height: 2;
-            margin-bottom: 50px;
-        }
-
-        .dynamic-student-name {
-            font-size: clamp(2rem, 3vw + 1rem, 3rem);
-            color: var(--primary);
-            font-weight: bold;
-            display: block;
-            margin: 15px 0;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
-        }
-
-        .cert-score {
-            font-size: clamp(3rem, 4vw + 1rem, 4.5rem);
-            font-weight: bold;
-            color: var(--danger);
-            margin: 20px 0;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
-        }
-
-        .cert-signatures {
+        .cert-footer {
             display: flex;
             justify-content: space-around;
+            align-items: flex-end;
             margin-top: 50px;
-            flex-wrap: wrap;
-            gap: 20px;
         }
 
-        .signature-block {
+        .signature {
             text-align: center;
         }
-        .signature-block p {
-            font-size: clamp(1.2rem, 1.5vw + 0.5rem, 1.6rem);
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: var(--cert-text);
-        }
-        .signature-line {
-            width: clamp(200px, 20vw, 300px);
-            height: 3px;
-            background: var(--cert-text);
-            margin-bottom: 10px;
+
+        .signature img {
+            width: 150px;
+            opacity: 0.8;
         }
 
-        .stamp {
-            position: absolute;
-            bottom: 40px;
-            left: 50%;
-            transform: translateX(-50%) rotate(-15deg);
-            width: 140px;
-            height: 140px;
-            border: 5px dashed var(--secondary);
+        .signature p {
+            font-weight: bold;
+            color: #0056b3;
+            border-top: 1px solid #0056b3;
+            padding-top: 5px;
+        }
+
+        .seal {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #00bfff, #0056b3);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            color: var(--secondary);
+            color: white;
             font-weight: bold;
-            font-size: 1.5rem;
-            opacity: 0.85;
-            background: rgba(255,255,255,0.8);
+            font-size: 1.2rem;
+            text-align: center;
+            border: 4px dashed white;
+            box-shadow: 0 0 20px rgba(0, 86, 179, 0.5);
+            position: relative;
+        }
+        
+        .seal::after {
+            content: '★';
+            position: absolute;
+            bottom: -15px;
+            color: #0056b3;
+            font-size: 2rem;
+        }
+
+        .cert-actions {
+            margin-top: 30px;
+            display: flex;
+            gap: 20px;
         }
 
         /* =========================================================
-           FOOTER PROFESSIONALLY CENTERED - SOVEREIGN EAGLE
-           - محمي بألوانه الداكنة والزاهية سواء في الوضع الليلي أو النهاري
+           FOOTER PROFESSIONALLY CENTERED - SOVEREIGN EAGLE (BLUE THEME)
            ========================================================= */
         .footer-wrapper {
             padding: 80px 20px; 
-            background: rgba(5, 12, 25, 0.98) !important; /* ثابت لضمان الوضوح */
-            border-top: 3px solid #00FFFF !important; 
+            background: rgba(2, 10, 20, 0.98); 
+            border-top: 3px solid var(--primary-color); 
             display: flex; 
             justify-content: center; 
             align-items: center; 
-            margin-top: auto;
+            margin-top: 40px;
             position: relative; 
             overflow: hidden; 
             height: 550px; 
             flex-shrink: 0; 
-            box-shadow: 0 -15px 50px rgba(0, 123, 255, 0.4) !important;
+            box-shadow: 0 -15px 50px rgba(0,0,0,0.8);
         }
 
         .circle-container { 
@@ -448,11 +373,6 @@
             display: flex; 
             justify-content: center; 
             align-items: center;
-            transform: scale(min(1, 0.8vw)); /* تجاوب على الشاشات الأصغر */
-        }
-
-        @media (max-width: 600px) {
-            .circle-container { transform: scale(0.65); }
         }
 
         .rotating-svg { 
@@ -472,7 +392,7 @@
 
         .text-path-style { 
             font-size: 20px; 
-            fill: #ffffff !important; 
+            fill: #ffffff; 
             font-family: 'Arial Black', Impact, sans-serif; 
             letter-spacing: 6px; 
             filter: drop-shadow(2px 2px 3px rgba(0,0,0,0.9)); 
@@ -481,7 +401,7 @@
         .name-highlight { 
             font-size: 28px; 
             font-weight: 900; 
-            fill: #00FFFF !important; /* السماوي */
+            fill: var(--primary-color); 
             letter-spacing: 4px; 
             text-transform: uppercase; 
         }
@@ -492,14 +412,14 @@
             text-align: center; 
             font-size: 2.2rem; 
             font-weight: 900; 
-            color: #00FFFF !important; /* السماوي */
+            color: var(--primary-color); 
             line-height: 1.8; 
             z-index: 10;
             display: flex; 
             flex-direction: column; 
             justify-content: center; 
             align-items: center;
-            text-shadow: 0 1px 0 #00b3b3, 0 2px 0 #009999, 0 3px 0 #008080, 0 10px 20px rgba(0,0,0,0.9), 0 0 40px rgba(0, 255, 255, 0.4) !important;
+            text-shadow: 0 1px 0 #00b3cc, 0 2px 0 #0099b3, 0 3px 0 #008099, 0 4px 0 #00667a, 0 5px 0 #004d5c, 0 10px 20px rgba(0,0,0,0.9), 0 0 40px var(--primary-glow);
         }
 
         .center-prayer::before { 
@@ -507,7 +427,7 @@
             font-size: 2.2rem; 
             margin-bottom: 15px; 
             opacity: 0.95; 
-            filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.4)); 
+            filter: drop-shadow(0 0 10px var(--primary-glow)); 
         }
 
         .center-prayer::after { 
@@ -515,93 +435,106 @@
             font-size: 2.2rem; 
             margin-top: 15px; 
             opacity: 0.95; 
-            filter: drop-shadow(0 0 10px rgba(0, 255, 255, 0.4)); 
+            filter: drop-shadow(0 0 10px var(--primary-glow)); 
             transform: scaleX(-1); 
         }
 
+        /* Print Media Query for Certificate */
         @media print {
             body * { visibility: hidden; }
-            .certificate, .certificate * { visibility: visible; }
-            .certificate { position: absolute; left: 0; top: 0; width: 100%; border: none; padding: 20px; box-shadow: none; }
-            .btn, header, .footer-wrapper { display: none !important; }
+            #certificate-screen, #certificate-screen * { visibility: visible; }
+            #certificate-screen { position: absolute; left: 0; top: 0; width: 100%; height: 100%; margin: 0; padding: 0; display: block; }
+            .cert-actions, .footer-wrapper { display: none !important; }
+            @page { size: landscape; margin: 0; }
+            .container { box-shadow: none; border: none; background: transparent; }
         }
     </style>
 </head>
 <body>
 
-    <header class="main-header">
-        <div class="header-titles">
-            <h1>منصة أشرقت للتدريب - الدقهلية</h1>
-            <h3>المراجعة الشاملة لتصفيات TOFAS المستوى الثالث - JavaScript</h3>
-        </div>
-        <button id="theme-toggle" class="theme-btn" onclick="toggleTheme()">☀️ وضع النهار</button>
-    </header>
+    <div id="particles-js"></div>
 
     <div class="container">
-        
-        <!-- Welcome Screen -->
-        <div id="welcome-screen">
-            <h2>مرحباً بك في منصة التدريب الاحترافية العالمية</h2>
-            <p>
-                تم تصميم هذه المنصة لتأهيلك لتصفيات TOFAS الدولية والسفر لليابان <br><br>
-                <strong>إشراف عام:</strong> أستاذ البرمجة والذكاء الاصطناعي الأستاذ / محمود محمد عبد الوهاب السيد عيسى.<br>
-                يحتوي الاختبار على 60 سؤالاً حقيقياً يغطي كافة الأفكار، مع شرح التركات والملاحظات الهامة لكل سؤال.
+        <!-- شاشة البداية -->
+        <div id="start-screen" class="active">
+            <h1>🏆 محاكاة تصفيات توفاس (TOFAS) الرسمية 🏆</h1>
+            <h2 style="color: white; font-size: 1.2rem; font-weight: normal;">المؤهلة للسفر إلى اليابان والتعاقد مع كبرى الشركات</h2>
+            <p style="text-align: center; margin: 20px 0; color: #aaa; line-height: 1.8;">
+                <strong style="color: var(--primary-color);">إعداد وإشراف: أ. محمود محمد (أستاذ البرمجة - منصة أشرقت للتدريب)</strong>
             </p>
-            
-            <input type="text" id="student-name-input" class="student-input" placeholder="أدخل اسمك الثلاثي لاستخراج الشهادة..." autocomplete="off">
-            <br>
-            <button class="btn" onclick="startQuiz()">ابدأ الاختبار الآن</button>
+            <div class="input-group">
+                <input type="text" id="student-name" placeholder="أدخل اسمك الثلاثي للبدء وإصدار الشهادة" required>
+            </div>
+            <button class="btn" onclick="startQuiz()">ابدأ التحدي الآن 🚀</button>
         </div>
 
-        <!-- Quiz Screen -->
+        <!-- شاشة الاختبار -->
         <div id="quiz-screen">
-            <div class="progress-bar">
-                <div class="progress-fill" id="progress"></div>
-            </div>
-            
             <div class="quiz-header">
-                <span id="q-counter">السؤال 1 / 60</span>
-                <span id="score-counter">النقاط: 0</span>
+                <div id="question-counter">السؤال: 1 / 30</div>
+                <div class="timer" id="timer">⏱️ 45:00</div>
             </div>
-
-            <div class="question-text" id="q-text"></div>
+            <div class="progress-container">
+                <div class="progress-bar" id="progress-bar"></div>
+            </div>
             
-            <div class="options-grid" id="opts-container">
-                <!-- Options injected by JS -->
+            <div class="question-text" id="question-text">جارٍ تحميل السؤال...</div>
+            <div id="code-container" style="display: none; width: 100%;">
+                <pre class="code-block" id="code-block"></pre>
             </div>
 
-            <div class="feedback-box" id="feedback"></div>
+            <div class="options-grid" id="options-grid">
+                <!-- يتم حقن الخيارات هنا بواسطة JS -->
+            </div>
 
-            <div class="action-row">
-                <button class="btn" id="next-btn" onclick="handleNext()" disabled>تأكيد الإجابة</button>
+            <div class="feedback-box" id="feedback-box">
+                <h4>💡 التركة في هذا السؤال:</h4>
+                <p id="feedback-text"></p>
+                <button class="btn" id="next-btn" style="margin-top: 15px; width: 100%;" onclick="nextQuestion()">السؤال التالي ➡️</button>
             </div>
         </div>
 
-        <!-- Result Screen -->
+        <!-- شاشة النتيجة قبل الشهادة -->
         <div id="result-screen">
-            <div class="certificate">
-                <h1>شهادة إتمام التدريب</h1>
-                <h2>TOFAS LEVEL 3 - JavaScript</h2>
-                <div class="cert-content">
-                    تشهد <strong>منصة أشرقت للتدريب</strong> بأن المتدرب/ـة:<br>
-                    <span class="dynamic-student-name" id="cert-student-name"></span>
-                    قد اجتاز بنجاح المراجعة الشاملة لتصفيات TOFAS وحصل على تقييم احترافي بنسبة:<br>
-                    <div class="cert-score" id="final-score">100%</div>
-                    هذه الشهادة مؤهلة لاجتياز التصفيات الرسمية باقتدار وتميز.
+            <h1 id="result-title">انتهى التحدي!</h1>
+            <h2 style="font-size: 3rem; margin: 20px 0;" id="final-score">0%</h2>
+            <p id="result-message" style="font-size: 1.2rem; text-align: center; margin-bottom: 30px;"></p>
+            <button class="btn" id="cert-btn" style="display: none;" onclick="showCertificate()">عرض واستخراج الشهادة 🎓</button>
+            <button class="btn" onclick="location.reload()" style="background: transparent; border: 2px solid var(--secondary-color);">إعادة المحاولة 🔄</button>
+        </div>
+
+        <!-- شاشة الشهادة -->
+        <div id="certificate-screen">
+            <div class="certificate" id="printable-cert">
+                <div class="cert-header">شهادة اجتياز احترافية</div>
+                <div class="cert-sub">مقدمة من منصة أشرقت للتدريب المتقدم لتصفيات TOFAS</div>
+                
+                <div class="cert-body">
+                    تشهد إدارة التدريب بأن الطالب/ـة:<br>
+                    <span class="cert-name" id="cert-name-display">اسم الطالب</span><br>
+                    قد اجتاز/ت بنجاح البرنامج التدريبي المعقد لمحاكاة تصفيات اليابان للبرمجة والذكاء الاصطناعي لعام 2026، 
+                    بمعدل نجاح <strong id="cert-score-display" style="color: #0056b3;"></strong>.<br>
+                    نؤكد أن المذكور أظهر كفاءة عالية في التفكير المنطقي، الخوارزميات، وهندسة البرمجيات.
                 </div>
-                <div class="cert-signatures">
-                    <div class="signature-block">
-                        <div class="signature-line"></div>
-                        <p>أستاذ البرمجة والذكاء الاصطناعي</p>
-                        <p>محمود محمد (معلم أول أ)</p>
+
+                <div class="cert-footer">
+                    <div class="signature">
+                        <div style="font-family: 'Brush Script MT', cursive; font-size: 2rem; color: #002244;">Mahmoud M.</div>
+                        <p>أ. محمود محمد<br>أستاذ البرمجة والذكاء الاصطناعي</p>
+                    </div>
+                    <div class="seal">
+                        TOFAS<br>2026<br>CERTIFIED
+                    </div>
+                    <div class="signature">
+                        <div style="font-size: 1.2rem; margin-bottom: 10px; color: #002244;" id="cert-date"></div>
+                        <p>تاريخ الإصدار</p>
                     </div>
                 </div>
-                <div class="stamp">TOFAS<br>PASSED</div>
             </div>
-            <button class="btn" onclick="window.print()">طباعة الشهادة</button>
-            <button class="btn" onclick="location.reload()" style="margin-right: 15px; background: #333; color: white;">إعادة الاختبار</button>
+            <div class="cert-actions">
+                <button class="btn" onclick="window.print()">طباعة الشهادة 🖨️</button>
+            </div>
         </div>
-
     </div>
 
     <!-- 3D FOOTER -->
@@ -609,8 +542,8 @@
         <div class="circle-container">
             <svg viewBox="0 0 500 500" class="rotating-svg">
                 <defs><path id="textCirclePath" d="M 250, 440 A 190,190 0 1,1 250,60 A 190,190 0 1,1 250,440" /></defs>
-                <circle cx="250" cy="250" r="215" fill="none" stroke="rgba(0, 255, 255, 0.3)" stroke-width="4" />
-                <circle cx="250" cy="250" r="165" fill="none" stroke="rgba(0, 255, 255, 0.3)" stroke-width="4" />
+                <circle cx="250" cy="250" r="215" fill="none" stroke="rgba(0, 229, 255, 0.3)" stroke-width="4" />
+                <circle cx="250" cy="250" r="165" fill="none" stroke="rgba(0, 229, 255, 0.3)" stroke-width="4" />
                 <text><textPath href="#textCirclePath" startOffset="50%" text-anchor="middle" class="text-path-style">
                     ALL RIGHTS RESERVED ®© DESIGNED & DEVELOPED BY <tspan class="name-highlight">MAHMOUD MOHAMED</tspan>
                 </textPath></text>
@@ -622,203 +555,425 @@
     </div>
 
     <script>
-        // Theme Toggle Logic
-        function toggleTheme() {
-            document.body.classList.toggle('light-mode');
-            const btn = document.getElementById('theme-toggle');
-            if(document.body.classList.contains('light-mode')) {
-                btn.innerHTML = '🌙 الوضع الليلي';
-            } else {
-                btn.innerHTML = '☀️ وضع النهار';
+        // 30 Questions Array (Corrected & Refined 100%)
+        const questions = [
+            {
+                q: "1. ما هو التعقيد الزمني (Time Complexity) لأسوأ حالة في خوارزمية الترتيب السريع (Quick Sort)؟",
+                code: null,
+                options: ["O(n)", "O(n log n)", "O(n^2)", "O(log n)"],
+                correct: 2,
+                trick: "التركة هنا: على الرغم من أن Quick Sort غالباً تكون O(n log n)، إلا أن أسوأ حالة تحدث عندما تكون المصفوفة مرتبة بالفعل ويتم اختيار العنصر الأخير كـ Pivot، فيصبح التعقيد O(n^2)."
+            },
+            {
+                q: "2. في لغة بايثون، ما هو ناتج تنفيذ الكود التالي؟",
+                code: "def add_item(item, item_list=[]):\n    item_list.append(item)\n    return item_list\n\nprint(add_item(1))\nprint(add_item(2))",
+                options: ["[1] ثم [2]", "[1] ثم [1, 2]", "Error", "[1, 2] ثم [1, 2]"],
+                correct: 1,
+                trick: "تركة خطيرة! المعاملات الافتراضية (Default Arguments) مثل القائمة الفارغة يتم تقييمها مرة واحدة فقط عند تعريف الدالة، وليس في كل استدعاء. لذا تحتفظ القائمة بقيمتها."
+            },
+            {
+                q: "3. في الذكاء الاصطناعي، ما هو دور طبقة 'الإسقاط' (Dropout Layer) في الشبكات العصبية؟",
+                code: null,
+                options: ["زيادة سرعة معالجة البيانات", "تحويل البيانات إلى قيم خطية", "منع ظاهرة الفرط في التخصيص (Overfitting)", "حفظ الأوزان (Weights) مؤقتاً"],
+                correct: 2,
+                trick: "التركة: طبقة الـ Dropout تقوم بإيقاف تفعيل بعض العصبونات عشوائياً أثناء التدريب، مما يجبر الشبكة على عدم الاعتماد المفرط على عصبونات محددة ويقلل الـ Overfitting."
+            },
+            {
+                q: "4. ما هو ناتج العملية المنطقية Bitwise XOR لمتغير مع نفسه (a ^ a)؟",
+                code: null,
+                options: ["1", "a", "0", "undefined"],
+                correct: 2,
+                trick: "التركة: البوابة XOR تُعطي 1 فقط إذا اختلفت المدخلات. بما أن المتغير هو نفسه، فكل البتات متطابقة، لذا الناتج دائماً 0."
+            },
+            {
+                q: "5. في قواعد البيانات (SQL)، ما هو الفرق الأساسي بين WHERE و HAVING؟",
+                code: null,
+                options: ["لا يوجد فرق، كلاهما يستخدم للفلترة.", "WHERE تستخدم مع الأعمدة الرقمية فقط.", "WHERE تفلتر السجلات قبل التجميع (GROUP BY)، و HAVING تفلتر بعد التجميع.", "HAVING أسرع من WHERE في المعالجة."],
+                correct: 2,
+                trick: "التركة: لا يمكنك استخدام الدوال التجميعية مثل SUM() أو COUNT() داخل جملة WHERE. يجب استخدام HAVING لذلك لأنها تُنفذ بعد الـ GROUP BY."
+            },
+            {
+                q: "6. أي خوارزمية تُستخدم لاكتشاف وجود 'حلقة مغلقة' (Loop) في القائمة المترابطة (Linked List)؟",
+                code: null,
+                options: ["خوارزمية ديكسترا", "خوارزمية السلحفاة والأرنب (Floyd's Cycle-Finding)", "خوارزمية البحث الثنائي", "خوارزمية K-Means"],
+                correct: 1,
+                trick: "التركة: خوارزمية السلحفاة والأرنب تستخدم مؤشرين يتحركان بسرعات مختلفة. إذا كان هناك حلقة، فسيتقابلان حتماً."
+            },
+            {
+                q: "7. ما هو الناتج من الكود التالي في بايثون؟",
+                code: "a = [1, 2, 3]\nb = a\nprint(a is b, a == b)",
+                options: ["True True", "True False", "False True", "False False"],
+                correct: 0,
+                trick: "التركة: 'is' تقارن هوية الكائن في الذاكرة (Memory ID)، و '==' تقارن القيم. بما أن b = a، فهما يشيران لنفس الكائن، لذا كلاهما True."
+            },
+            {
+                q: "8. ما هي المشكلة الرئيسية في خوارزمية ديكسترا (Dijkstra) لإيجاد أقصر مسار؟",
+                code: null,
+                options: ["بطيئة جداً مع الرسوم البيانية الصغيرة", "لا تدعم الرسوم البيانية غير الموجهة", "تفشل إذا كانت الأوزان (Weights) سالبة", "تحتاج إلى مساحة تخزين O(n^3)"],
+                correct: 2,
+                trick: "التركة: خوارزمية ديكسترا تفترض دائماً أن إضافة حافة جديدة تزيد من التكلفة. إذا كان هناك وزن سالب، فقد تعطي نتائج خاطئة. نستخدم خوارزمية Bellman-Ford بدلاً منها."
+            },
+            {
+                q: "9. في C++، ما هو ناتج الكود التالي؟",
+                code: "int arr[] = {10, 20, 30};\nint *ptr = arr;\nint a = *ptr++;\ncout << a << \" \" << *ptr;",
+                options: ["10 10", "10 20", "20 20", "20 30"],
+                correct: 1,
+                trick: "التركة: التعبير *ptr++ يرجع القيمة الحالية (10) للمتغير a ثم يزيد المؤشر. لذا a تصبح 10، وعند طباعة *ptr التالية نجد المؤشر قد انتقل للعنصر 20."
+            },
+            {
+                q: "10. ما هي البوابة المنطقية الشاملة (Universal Gate) التي يمكن باستخدامها بناء أي دائرة منطقية أخرى؟",
+                code: null,
+                options: ["AND", "OR", "XOR", "NAND"],
+                correct: 3,
+                trick: "التركة: البوابات NAND و NOR تسمى بوابات شاملة لأنه يمكن تصنيع بوابات AND, OR, NOT باستخدام تركيبات منها فقط."
+            },
+            {
+                q: "11. في البرمجة كائنية التوجه (OOP)، ما هو مصطلح 'إخفاء التفاصيل الداخلية للعمليات وإظهار الوظائف فقط'؟",
+                code: null,
+                options: ["التغليف (Encapsulation)", "التجريد (Abstraction)", "تعدد الأشكال (Polymorphism)", "التوريث (Inheritance)"],
+                correct: 1,
+                trick: "التركة: التجريد (Abstraction) يخفي 'كيف' يعمل الكود ويظهر 'ماذا' يفعل (مثل واجهة السيارة). أما التغليف فهو تجميع البيانات والدوال في كبسولة واحدة لحمايتها."
+            },
+            {
+                q: "12. في مجال تعلم الآلة (Machine Learning)، ما هو الفرق بين الدقة (Precision) والاستدعاء (Recall)؟",
+                code: null,
+                options: ["كلاهما يعني نسبة التوقعات الصحيحة الإجمالية", "الدقة تركز على الإيجابيات الصحيحة من بين التوقعات، والاستدعاء يركز على الإيجابيات الصحيحة من بين الحالات الفعلية", "الاستدعاء يستخدم في تصنيف الصور فقط", "لا يوجد فرق بينهما"],
+                correct: 1,
+                trick: "التركة: الدقة (كم من توقعاتنا الإيجابية كان صحيحاً؟)، الاستدعاء (كم من الإيجابيات الفعلية استطعنا اكتشافها؟). غالباً تحسين أحدهما يقلل الآخر."
+            },
+            {
+                q: "13. في جافاسكريبت، ما هو ناتج تنفيذ الكود التالي؟",
+                code: "let value = '15';\nlet res = Number(value) + 5;\nconsole.log(res);",
+                options: ["20", "'155'", "15", "Error"],
+                correct: 0,
+                trick: "التركة: دالة Number() تقوم بتحويل السلسلة النصية '15' إلى قيمة رقمية. لذلك عند جمعها مع 5 يتم الجمع الرياضي لينتج 20. لو لم نستخدم Number لتم الدمج النصي (Concatenation) وأصبح الناتج '155'."
+            },
+            {
+                q: "14. أي من خوارزميات البحث التالية هي الأنسب للبحث عن أقصر مسار (Shortest Path) في رسم بياني غير موزن (Unweighted Graph)؟",
+                code: null,
+                options: ["البحث بالعمق (DFS)", "البحث بالعرض (BFS)", "خوارزمية ديكسترا", "خوارزمية A*"],
+                correct: 1,
+                trick: "التركة: في الرسوم البيانية غير الموزنة، BFS يضمن لك إيجاد أقصر مسار بأقل عدد من الحواف، وهو أسرع بكثير من ديكسترا."
+            },
+            {
+                q: "15. في الشبكات (Networking)، ما هو بروتوكول طبقة النقل الذي لا يضمن وصول البيانات (Connectionless)؟",
+                code: null,
+                options: ["TCP", "HTTP", "UDP", "FTP"],
+                correct: 2,
+                trick: "التركة: UDP سريع جداً ولكنه لا يضمن وصول الحزم (يستخدم في البث المباشر والألعاب)، بينما TCP يضمن وصولها بترتيبها الصحيح."
+            },
+            {
+                q: "16. ما هو ناتج الكود التالي في بايثون؟",
+                code: "t = ([1, 2], 3)\nt[0].append(4)\nprint(t)",
+                options: ["Error", "([1, 2, 4], 3)", "([1, 2], 3)", "([1, 2, 3, 4])"],
+                correct: 1,
+                trick: "تركة بايثون متقدمة: الـ Tuple (الصف) لا يقبل التعديل، لكن العنصر الأول بداخله هو List (قابل للتعديل). يمكن التعديل على محتوى الـ List الداخلي بدون خطأ!"
+            },
+            {
+                q: "17. في قواعد البيانات، خصائص ACID ترمز إلى:",
+                code: null,
+                options: ["Atomicity, Consistency, Isolation, Durability", "Action, Command, Integer, Data", "Array, Class, Interface, Double", "Access, Control, Identify, Delete"],
+                correct: 0,
+                trick: "التركة: المعاملات في قاعدة البيانات يجب أن تكون الذرية، التناسق، العزل، والمتانة لضمان عدم تلف البيانات عند انقطاع التيار الكهربائي مثلاً."
+            },
+            {
+                q: "18. أي من خوارزميات الذكاء الاصطناعي تعتمد على نظام المكافآت والعقوبات لتعلم اتخاذ القرارات؟",
+                code: null,
+                options: ["التعلم الخاضع للإشراف (Supervised)", "التعلم غير الخاضع للإشراف (Unsupervised)", "التعلم المعزز (Reinforcement Learning)", "الشبكات الالتفافية (CNN)"],
+                correct: 2,
+                trick: "التركة: التعلم المعزز (مثل الذي يُستخدم في الروبوتات أو ألعاب الشطرنج) يعتمد على تفاعل الـ Agent مع البيئة لتعظيم الـ Reward."
+            },
+            {
+                q: "19. ما هو الخطأ الناتج عن عدم استخدام الكلمة المفتاحية `delete` في لغة C++ بعد تخصيص ذاكرة بـ `new`؟",
+                code: null,
+                options: ["Syntax Error", "Stack Overflow", "Memory Leak", "Segmentation Fault"],
+                correct: 2,
+                trick: "التركة: تسرب الذاكرة (Memory Leak) يحدث عندما يتم حجز ذاكرة في الـ Heap وعدم تحريرها، مما يؤدي لاستهلاك الرامات تدريجياً حتى يتوقف النظام."
+            },
+            {
+                q: "20. ما هي تعقيدات البحث في شجرة بحث ثنائية (BST) في أسوأ الحالات؟",
+                code: null,
+                options: ["O(log n)", "O(n)", "O(1)", "O(n log n)"],
+                correct: 1,
+                trick: "التركة: في الحالة المثالية يكون O(log n)، ولكن إذا كانت الشجرة غير متزنة (Skewed Tree - مثل إدخال 1,2,3,4,5 بالترتيب)، ستتحول إلى قائمة مترابطة ويكون التعقيد O(n)."
+            },
+            {
+                q: "21. في بايثون، ما نتيجة التعبير التالي؟",
+                code: "print(2 ** 3 ** 2)",
+                options: ["64", "512", "12", "72"],
+                correct: 1,
+                trick: "التركة: أولوية تنفيذ الأسس (**) في بايثون تتم من اليمين إلى اليسار (Right-to-Left Associativity). لذا 3**2 = 9، ثم 2**9 = 512."
+            },
+            {
+                q: "22. ما هي الخوارزمية التي تستخدم مبدأ تقسيم المشكلة لعدة مشاكل فرعية وحفظ نواتجها لتجنب تكرار الحسابات؟",
+                code: null,
+                options: ["البرمجة الديناميكية (Dynamic Programming)", "خوارزمية الجشع (Greedy Algorithm)", "الرجوع للخلف (Backtracking)", "فرق تسد (Divide and Conquer)"],
+                correct: 0,
+                trick: "التركة: التخزين المؤقت للنتائج (Memoization) يفرق البرمجة الديناميكية عن Divide and Conquer البسيط الذي قد يعيد حساب نفس المشاكل."
+            },
+            {
+                q: "23. في معمارية الشبكات العصبية، ما هي الشبكات المصممة خصيصاً للتعامل مع بيانات الصور (Spatial Data)؟",
+                code: null,
+                options: ["RNN", "LSTM", "CNN", "GAN"],
+                correct: 2,
+                trick: "التركة: CNN (Convolutional Neural Networks) تستخدم المرشحات (Filters) لاستخراج الميزات من الصور مثل الحواف والزوايا."
+            },
+            {
+                q: "24. ما هو ناتج التعبير التالي في جافاسكريبت؟",
+                code: "console.log(0.1 + 0.2 === 0.3);",
+                options: ["true", "false", "ReferenceError", "NaN"],
+                correct: 1,
+                trick: "التركة: بسبب طريقة تمثيل الفاصلة العائمة (IEEE 754) في الذاكرة، ناتج 0.1+0.2 يعطي 0.30000000000000004."
+            },
+            {
+                q: "25. كيف يمكنك معرفة ما إذا كان الرقم `n` من قوى العدد 2 (Power of 2) في سطر واحد باستخدام العمليات الثنائية (Bitwise)؟",
+                code: null,
+                options: ["n ^ 2 == 0", "n & (n - 1) == 0", "n | 1 == 0", "n << 1 == n"],
+                correct: 1,
+                trick: "التركة: إذا كان الرقم من قوى العدد 2 (مثال 8 يكتب بالثنائي 1000)، فإن n-1 سيكون (7 يكتب 0111). عملية الـ AND بينهما ستعطي دائماً أصفاراً."
+            },
+            {
+                q: "26. إذا قمت بعمل استدعاء ذاتي (Recursion) بدون تحديد شرط التوقف (Base Case)، ماذا سيحدث؟",
+                code: null,
+                options: ["سيتجاهل المترجم الاستدعاء", "يحدث تسرب للذاكرة (Memory Leak)", "يحدث طفح للمكدس (Stack Overflow)", "يعمل البرنامج ببطء ولكن بنجاح"],
+                correct: 2,
+                trick: "التركة: كل استدعاء يستهلك جزءاً من مساحة الـ Stack في الذاكرة، وعدم التوقف يؤدي لامتلاء المكدس وانهيار البرنامج (Stack Overflow)."
+            },
+            {
+                q: "27. في هياكل البيانات، كيف يتم التعامل مع مشكلة 'التصادم' (Collision) في جدول التجزئة (Hash Map)؟",
+                code: null,
+                options: ["بحذف العنصر القديم", "بتغيير حجم الجدول فقط", "باستخدام السلاسل (Chaining) أو العنونة المفتوحة (Open Addressing)", "باستخدام المكدسات (Stacks)"],
+                correct: 2,
+                trick: "التركة: التصادم يحدث عندما يولد مفتاحان نفس مؤشر التجزئة. يتم حله إما بجعل المؤشر يشير لقائمة مترابطة (Chaining) أو البحث عن الخانة التالية الفارغة."
+            },
+            {
+                q: "28. ما هو ناتج الكود التالي في بايثون؟",
+                code: "x = 5\ndef my_func():\n    x = x + 1\n    print(x)\nmy_func()",
+                options: ["6", "5", "UnboundLocalError", "SyntaxError"],
+                correct: 2,
+                trick: "التركة: عندما تحاول تعديل متغير عام (Global) داخل الدالة بدون كتابة الكلمة المفتاحية `global x`، تعتبره بايثون متغيراً محلياً لم يتم تعريفه بعد!"
+            },
+            {
+                q: "29. أي من مصطلحات البيانات الضخمة (Big Data) يشير إلى تنوع أنواع ومصادر البيانات؟",
+                code: null,
+                options: ["Volume", "Velocity", "Variety", "Veracity"],
+                correct: 2,
+                trick: "التركة: الـ 3Vs الرئيسية هي الحجم (Volume)، السرعة (Velocity)، والتنوع (Variety) كالنصوص والصور والفيديوهات."
+            },
+            {
+                q: "30. ما هو الفرق بين الخطأ النحوي (Syntax Error) والخطأ المنطقي (Logical Error)؟",
+                code: null,
+                options: ["لا يوجد فرق", "المنطقي يمنع التشغيل، النحوي يعطي نتائج خاطئة", "النحوي يمنع التشغيل، المنطقي يعمل لكن النتائج خاطئة", "النحوي متعلق بالشبكة، المنطقي متعلق بالكود"],
+                correct: 2,
+                trick: "التركة: الخطأ النحوي يعترضه المترجم (Compiler) لعدم اتباع قواعد اللغة. أما المنطقي فهو خطأ في تفكير المبرمج (مثل استخدام جمع بدل طرح)، والبرنامج سيعمل بسلام لكن النتيجة كارثية!"
             }
-        }
-
-        // 60 Authentic Questions exactly reflecting the Level 3 standard and tricks
-        const questionsData = [
-            {"q": "ما نوع البيانات للمتغير score؟<br><pre><code>let score = 25;</code></pre>", "opts": ["String نص", "Number رقم", "Boolean منطقي", "Array مصفوفة"], "ans": 1, "exp": "الرقم (Number) يكتب بدون علامات تنصيص."},
-            {"q": "توقّع الناتج:<br><pre><code>console.log('5' + 3);</code></pre>", "opts": ["8", "53", "'8'", "Error"], "ans": 1, "exp": "التركة: علامة (+) هي الفخ. القيمة '5' نص، لذلك تستخدم علامة + للدمج (Concatenation) وليس الجمع."},
-            {"q": "توقّع الناتج:<br><pre><code>console.log('9' - 4);</code></pre>", "opts": ["94", "5", "'5'", "Error"], "ans": 1, "exp": "الطرح يحول النص الرقمي إلى رقم بشكل تلقائي. 9 - 4 = 5."},
-            {"q": "ما قيمة x النهائية؟<br><pre><code>let x = 4;<br>x = x + 3;</code></pre>", "opts": ["3", "4", "7", "43"], "ans": 2, "exp": "يبدأ x بالقيمة 4، ثم نضيف إليه 3، فتصبح القيمة 7."},
-            {"q": "توقّع الناتج (أولوية العمليات):<br><pre><code>console.log(2 + 3 * 4);</code></pre>", "opts": ["20", "14", "24", "9"], "ans": 1, "exp": "الضرب يُنفذ قبل الجمع حسب ترتيب العمليات الحسابية (3 * 4 = 12، ثم 12 + 2 = 14)."},
-            {"q": "توقّع الناتج:<br><pre><code>let value = '15';<br>let res = Number(value) + 5;<br>console.log(res);</code></pre>", "opts": ["155", "20", "Error", "undefined"], "ans": 1, "exp": "دالة Number() تحول النص '15' إلى رقم حقيقي، فيتم الجمع الرياضي 15 + 5 = 20."},
-            {"q": "توقّع الناتج:<br><pre><code>let result = '2' + 3 * 4 - 5;<br>console.log(result);</code></pre>", "opts": ["19", "207", "9", "Error"], "ans": 1, "exp": "الضرب أولاً: 3*4=12. ثم الدمج: '2'+12='212'. ثم الطرح يحول النص لرقم: 212-5=207."},
-            {"q": "ما هي القيمة النهائية لـ score؟<br><pre><code>let score = 10;<br>score += 5;<br>score *= 2;</code></pre>", "opts": ["30", "20", "25", "15"], "ans": 0, "exp": "score += 5 تجعل القيمة 15. ثم score *= 2 تضرب 15 في 2 فتصبح 30."},
-            {"q": "أي من التالي يمثل تعريف قيمة منطقية (Boolean)؟", "opts": ["let isReady = 'true';", "let isReady = true;", "let isReady = 1;", "let isReady = [true];"], "ans": 1, "exp": "القيم المنطقية تكتب بدون علامات تنصيص ولها احتمالان فقط: true أو false."},
-            {"q": "توقّع الناتج:<br><pre><code>let total = '0';<br>for (let v of ['35', '30']) {<br>  total = total + v;<br>}</code></pre>", "opts": ["65", "065", "03530", "Error"], "ans": 2, "exp": "فخ النصوص! المتغير total يبدأ بنص '0'، وكل إضافة هي عملية دمج: '0'+'35'='035' ثم '035'+'30'='03530'."},
-            {"q": "توقّع الناتج:<br><pre><code>let age = 16;<br>if (age >= 15) {<br>  console.log('Allowed');<br>} else {<br>  console.log('Not allowed');<br>}</code></pre>", "opts": ["Allowed", "Not allowed", "true", "No output"], "ans": 0, "exp": "الشرط 16 >= 15 صحيح (true)، لذلك يُنفذ الفرع الأول."},
-            {"q": "توقّع الناتج:<br><pre><code>console.log(10 > 4);</code></pre>", "opts": ["10", "4", "true", "false"], "ans": 2, "exp": "10 بالفعل أكبر من 4، لذا نتيجة المقارنة هي true."},
-            {"q": "توقّع الناتج:<br><pre><code>console.log(5 === '5');</code></pre>", "opts": ["true", "false", "Error", "undefined"], "ans": 1, "exp": "المعامل === يقارن القيمة ونوع البيانات. القيمتان 5 لكن الأنواع مختلفة (رقم ونص)، فالنتيجة false."},
-            {"q": "توقّع الناتج:<br><pre><code>let score = 70;<br>if (score >= 50 && score < 70) {<br>  console.log('Group A');<br>} else {<br>  console.log('Group B');<br>}</code></pre>", "opts": ["Group A", "Group B", "Error", "No output"], "ans": 1, "exp": "الشرط 70 < 70 غير صحيح (false). في معامل && يجب أن يكون كلا الشرطين صحيحين، لذا ننتقل إلى else."},
-            {"q": "توقّع الناتج:<br><pre><code>let day = 'Friday';<br>if (day === 'Friday' || day === 'Saturday') {<br>  console.log('Weekend');<br>}</code></pre>", "opts": ["Weekend", "Friday", "false", "Error"], "ans": 0, "exp": "في معامل || (OR) يكفي أن يكون شرط واحد صحيحاً لتنفيذ الكود."},
-            {"q": "توقّع الناتج:<br><pre><code>let score = 95;<br>if (score >= 50) {<br>  console.log('Passed');<br>} else if (score >= 90) {<br>  console.log('Excellent');<br>}</code></pre>", "opts": ["Passed", "Excellent", "Passed Excellent", "Error"], "ans": 0, "exp": "ترتيب الفروع مهم! الشرط الأول (95 >= 50) صحيح، فيتم تنفيذه وتتوقف الجملة ولا يتم فحص الباقي."},
-            {"q": "توقّع الناتج:<br><pre><code>let value = 8;<br>if (value > 5) { value += 2; }<br>if (value === 10) { value *= 2; }<br>console.log(value);</code></pre>", "opts": ["10", "16", "20", "8"], "ans": 2, "exp": "هذه جمل if منفصلة. الأولى ترفع القيمة إلى 10. الثانية تتحقق وتجدها 10 فتضربها في 2 لتصبح 20."},
-            {"q": "ما نتيجة التعبير التالي؟<br><pre><code>console.log(!true);</code></pre>", "opts": ["true", "false", "1", "0"], "ans": 1, "exp": "معامل ! (NOT) يعكس القيمة المنطقية."},
-            {"q": "ما نتيجة المقارنة باستخدام == (Loose Equality)؟<br><pre><code>console.log(10 == '10');</code></pre>", "opts": ["true", "false", "Error", "undefined"], "ans": 0, "exp": "المعامل == يسمح بتحويل نوع البيانات، لذا يعتبر الرقم 10 والنص '10' متساويين."},
-            {"q": "ماذا يطبع الكود التالي؟<br><pre><code>let isTeacher = false;<br>let isAdmin = false;<br>console.log(isTeacher || isAdmin);</code></pre>", "opts": ["true", "false", "undefined", "Error"], "ans": 1, "exp": "كلا الشرطين false، ومعامل || يتطلب شرطاً واحداً صحيحاً على الأقل، لذا النتيجة false."},
-            {"q": "ما هو أول فهرس (Index) صحيح في المصفوفات؟<br><pre><code>let colors = ['red', 'green', 'blue'];</code></pre>", "opts": ["-1", "1", "0", "3"], "ans": 2, "exp": "فهارس المصفوفات في JavaScript تبدأ دائماً من الصفر."},
-            {"q": "توقّع الناتج:<br><pre><code>let numbers = [4, 8, 12];<br>console.log(numbers[1]);</code></pre>", "opts": ["4", "8", "12", "undefined"], "ans": 1, "exp": "الفهرس 1 يشير إلى العنصر الثاني في المصفوفة وهو 8."},
-            {"q": "توقّع الناتج:<br><pre><code>let fruits = ['apple', 'banana', 'orange'];<br>console.log(fruits[3]);</code></pre>", "opts": ["orange", "apple", "Error", "undefined"], "ans": 3, "exp": "الوصول لفهرس غير موجود (طول المصفوفة 3 وأعلى فهرس هو 2) يعطي undefined."},
-            {"q": "ما هو ناتج الكود التالي؟<br><pre><code>let numbers = [5, 10, 15, 20];<br>console.log(numbers.length);</code></pre>", "opts": ["3", "4", "5", "20"], "ans": 1, "exp": "خاصية length ترجع عدد العناصر في المصفوفة، وهنا يوجد 4 عناصر."},
-            {"q": "كيف نحصل على آخر عنصر في أي مصفوفة برمجياً؟", "opts": ["array[array.length]", "array[array.length - 1]", "array[-1]", "array.last()"], "ans": 1, "exp": "بما أن الفهارس تبدأ من 0، فإن فهرس آخر عنصر هو دائماً (الطول ناقص 1)."},
-            {"q": "توقّع الناتج:<br><pre><code>let marks = [12, 18, 20];<br>marks[0] = marks[0] + 3;<br>console.log(marks[0]);</code></pre>", "opts": ["12", "15", "23", "Error"], "ans": 1, "exp": "تم تحديث العنصر الأول. القيمة تبدأ بـ 12 ونضيف لها 3 لتصبح 15."},
-            {"q": "توقّع الناتج:<br><pre><code>let data = [10, 20, 30];<br>data[1] = 25;<br>console.log(data);</code></pre>", "opts": ["[10, 20, 30]", "[25, 20, 30]", "[10, 25, 30]", "[10, 20, 25]"], "ans": 2, "exp": "تم استبدال العنصر ذو الفهرس 1 (الذي كان 20) بالقيمة الجديدة 25."},
-            {"q": "ما هو الفهرس الأخير للمصفوفة التالية؟<br><pre><code>let items = ['a', 'b', 'c', 'd', 'e'];</code></pre>", "opts": ["4", "5", "e", "3"], "ans": 0, "exp": "المصفوفة تحتوي 5 عناصر. الطول (5) ناقص 1 يساوي 4."},
-            {"q": "توقّع الناتج:<br><pre><code>let arr = [];<br>arr[0] = 5;<br>console.log(arr.length);</code></pre>", "opts": ["0", "1", "5", "undefined"], "ans": 1, "exp": "تم إضافة عنصر واحد للمصفوفة الفارغة في الفهرس 0، لذا أصبح طولها 1."},
-            {"q": "توقّع الناتج:<br><pre><code>let scores = [50, 60];<br>let sum = scores[0] + scores[1];<br>console.log(sum);</code></pre>", "opts": ["5060", "110", "Error", "undefined"], "ans": 1, "exp": "العناصر هي أرقام، ويتم جمعها بشكل رياضي طبيعي: 50 + 60 = 110."},
-            {"q": "كم مرة تتكرر هذه الحلقة؟<br><pre><code>for (let i = 0; i < 4; i++) {<br>  console.log(i);<br>}</code></pre>", "opts": ["3", "4", "5", "Infinite"], "ans": 1, "exp": "تتكرر الحلقة 4 مرات للقيم: 0، 1، 2، 3. وتتوقف عندما تصبح i تساوي 4."},
-            {"q": "توقّع الناتج (المجموع التراكمي):<br><pre><code>let total = 0;<br>for (let n of [5, 10, 15]) {<br>  total += n;<br>}<br>console.log(total);</code></pre>", "opts": ["15", "30", "51015", "Error"], "ans": 1, "exp": "في كل دورة يتم إضافة الرقم للمجموع: 0+5=5، 5+10=15، 15+15=30."},
-            {"q": "كم مرة تتكرر هذه الحلقة؟ (انتبه للعلامة)<br><pre><code>for (let i = 0; i <= 3; i++) { }</code></pre>", "opts": ["2", "3", "4", "5"], "ans": 2, "exp": "وجود علامة <= يجعل الحلقة تشمل الرقم 3، لذا القيم هي: 0، 1، 2، 3 (4 دورات)."},
-            {"q": "توقّع الناتج (عداد):<br><pre><code>let count = 0;<br>for (let n of [2, 5, 8, 10]) {<br>  if (n > 5) { count++; }<br>}<br>console.log(count);</code></pre>", "opts": ["2", "3", "18", "0"], "ans": 0, "exp": "العداد count يزيد بمقدار 1 فقط للأرقام الأكبر من 5. الأرقام هي 8 و 10، لذا العداد يساوي 2."},
-            {"q": "توقّع الناتج (مجموع نصوص):<br><pre><code>let result = '';<br>for (let L of ['A', 'B', 'C']) {<br>  result += L;<br>}<br>console.log(result);</code></pre>", "opts": ["C", "A B C", "ABC", "Error"], "ans": 2, "exp": "المتغير التراكمي عبارة عن نص فارغ، لذا يتم دمج الحروف بجوار بعضها لتكوين 'ABC'."},
-            {"q": "توقّع الناتج:<br><pre><code>for (let i = 1; i <= 3; i++) {<br>  console.log(i);<br>}</code></pre>", "opts": ["0, 1, 2", "1, 2, 3", "1, 2", "Error"], "ans": 1, "exp": "الحلقة تبدأ من 1 وتشمل 3 (بسبب علامة اليساوي)."},
-            {"q": "توقّع الناتج:<br><pre><code>let total = 0;<br>let values = [3, 6, 9, 12];<br>for (let v of values) {<br>  if (v % 2 === 0) { total += v; }<br>}<br>console.log(total);</code></pre>", "opts": ["30", "18", "12", "9"], "ans": 1, "exp": "يتم جمع الأرقام الزوجية فقط (حيث باقي القسمة على 2 يساوي 0). الأرقام هي 6 و 12 ومجموعهما 18."},
-            {"q": "أي جزء في حلقة for التقليدية يُنفذ أولاً ولمرة واحدة فقط؟<br><pre><code>for (1; 2; 3) { 4 }</code></pre>", "opts": ["الشرط (2)", "التحديث (3)", "جسم الحلقة (4)", "إنشاء العداد (1)"], "ans": 3, "exp": "ترتيب التنفيذ: إنشاء العداد أولاً، ثم فحص الشرط، ثم جسم الحلقة، ثم التحديث."},
-            {"q": "توقّع الناتج:<br><pre><code>let total = 0;<br>for (let i = 1; i < 5; i++) {<br>  total += i;<br>}<br>console.log(total);</code></pre>", "opts": ["15", "10", "5", "0"], "ans": 1, "exp": "الحلقة تجمع الأرقام من 1 إلى 4. المجموع: 1 + 2 + 3 + 4 = 10."},
-            {"q": "ما الذي يسبب حلقة لا نهائية (Infinite Loop)؟", "opts": ["نسيان تحديث العداد (مثل ترك i++)", "شرط لا يتحقق أبداً", "استخدام مصفوفة فارغة", "استخدام let بدلاً من const"], "ans": 0, "exp": "إذا لم يتم تحديث العداد، سيظل الشرط صحيحاً دائماً ولن تتوقف الحلقة."},
-            {"q": "توقّع الناتج:<br><pre><code>function double(n) {<br>  return n * 2;<br>}<br>console.log(double(6));</code></pre>", "opts": ["6", "8", "12", "No output"], "ans": 2, "exp": "الدالة ترجع ناتج ضرب الرقم الممرر في 2 (6 * 2 = 12)."},
-            {"q": "ما الفرق بين console.log و return داخل الدالة؟", "opts": ["لا يوجد فرق", "return تطبع للمستخدم فقط", "return تعيد قيمة للبرنامج لاستخدامها لاحقاً وتنهي الدالة", "console.log توقف الدالة فوراً"], "ans": 2, "exp": "الطباعة (console.log) هي للرؤية فقط، بينما الإرجاع (return) يرسل القيمة لمكان الاستدعاء ويوقف تنفيذ الدالة."},
-            {"q": "توقّع الناتج:<br><pre><code>function test() {<br>  return 5;<br>  console.log('Hello');<br>}<br>console.log(test());</code></pre>", "opts": ["5 ثم Hello", "Hello ثم 5", "5 فقط", "Error"], "ans": 2, "exp": "تنفيذ الكلمة المفتاحية return ينهي الدالة فوراً، ولا يُنفذ أي كود بعدها."},
-            {"q": "توقّع الناتج:<br><pre><code>function subtract(a, b) {<br>  return a - b;<br>}<br>console.log(subtract(10, 3));</code></pre>", "opts": ["13", "-7", "7", "Error"], "ans": 2, "exp": "الترتيب في المعاملات مهم. a = 10 و b = 3. النتيجة 10 - 3 = 7."},
-            {"q": "توقّع الناتج:<br><pre><code>function add(a, b) {<br>  console.log(a + b);<br>}<br>let res = add(5, 2);<br>console.log(res);</code></pre>", "opts": ["7", "7 ثم undefined", "undefined", "Error"], "ans": 1, "exp": "الدالة تطبع 7 ولكنها لا تحتوي على return، لذلك القيمة المرجعة والمخزنة في res هي undefined."},
-            {"q": "توقّع الناتج (النطاق/Scope):<br><pre><code>function demo() {<br>  let localValue = 5;<br>}<br>demo();<br>console.log(localValue);</code></pre>", "opts": ["5", "0", "ReferenceError", "undefined"], "ans": 2, "exp": "المتغير localValue محلي داخل الدالة فقط وينتهي بانتهاء الدالة، فلا يمكن الوصول إليه من الخارج."},
-            {"q": "توقّع الناتج:<br><pre><code>let value = 10;<br>function test() {<br>  let value = 20;<br>  console.log(value);<br>}<br>test();<br>console.log(value);</code></pre>", "opts": ["20 ثم 20", "10 ثم 10", "20 ثم 10", "10 ثم 20"], "ans": 2, "exp": "المتغير المحلي داخل الدالة يحجب العام مؤقتاً، فيطبع 20، ثم خارج الدالة يطبع المتغير العام 10."},
-            {"q": "توقّع الناتج:<br><pre><code>let msg = 'Hello';<br>function show() {<br>  console.log(msg);<br>}<br>show();</code></pre>", "opts": ["undefined", "Hello", "Error", "msg"], "ans": 1, "exp": "المتغير msg معرف في النطاق العام (Global Scope)، لذلك يمكن للدالة رؤيته واستخدامه."},
-            {"q": "توقّع الناتج:<br><pre><code>function getScore(score) {<br>  if (score >= 50) { return 'Passed'; }<br>  return 'Failed';<br>}<br>console.log(getScore(75));</code></pre>", "opts": ["Passed", "Failed", "Passed Failed", "Error"], "ans": 0, "exp": "الشرط يتحقق، فيتم تنفيذ أول return والتي تنهي الدالة مباشرة، فلا يتم الوصول لـ 'Failed'."},
-            {"q": "توقّع الناتج:<br><pre><code>function add(a, b) { return a + b; }<br>let f = add(70, 5);<br>f = add(f, 10);<br>console.log(f);</code></pre>", "opts": ["75", "85", "10", "Error"], "ans": 1, "exp": "الاستدعاء الأول يرجع 75 ويخزنها في f. الاستدعاء الثاني يمرر 75 و 10، فيرجع 85."},
-            {"q": "توقّع الناتج:<br><pre><code>console.log(Math.floor(5.9));</code></pre>", "opts": ["5.9", "6", "5", "Error"], "ans": 2, "exp": "دالة Math.floor() تحذف الجزء العشري وتنزل للعدد الصحيح الأقل دائماً، مهما كان الكسر قريباً."},
-            {"q": "ما القيم التي يمكن إنتاجها من الكود التالي؟<br><pre><code>Math.floor(Math.random() * 3);</code></pre>", "opts": ["1, 2, 3", "0, 1, 2", "0, 1, 2, 3", "Only 0"], "ans": 1, "exp": "الدالة Math.random() تنتج قيمة من 0 لغاية ما قبل 1. بضربها في 3 وإزالة الكسر نحصل على 0, 1, 2."},
-            {"q": "توقّع الناتج:<br><pre><code>console.log(Math.round(4.5));</code></pre>", "opts": ["4", "5", "4.5", "0"], "ans": 1, "exp": "دالة Math.round() تقرب لأقرب عدد صحيح. .5 فما فوق يُقرب للأكبر."},
-            {"q": "توقّع الناتج:<br><pre><code>console.log(Math.max(3, 9, 5));</code></pre>", "opts": ["3", "5", "9", "Error"], "ans": 2, "exp": "دالة Math.max() ترجع القيمة الأكبر بين الأرقام الممررة."},
-            {"q": "توقّع الناتج:<br><pre><code>console.log(Math.min(6, 2, 11, 3));</code></pre>", "opts": ["2", "3", "6", "11"], "ans": 0, "exp": "دالة Math.min() ترجع القيمة الأصغر."},
-            {"q": "توقّع الناتج:<br><pre><code>let res = Math.max(<br>  Math.floor(8.9),<br>  Math.round(7.6)<br>);<br>console.log(res);</code></pre>", "opts": ["8.9", "7", "8", "9"], "ans": 2, "exp": "نبني من الداخل: floor(8.9) هو 8. و round(7.6) هو 8. أكبرهم هو 8."},
-            {"q": "لإنشاء رقم عشوائي بين 1 و 6 (مثل حجر النرد)، نستخدم:", "opts": ["Math.floor(Math.random() * 6)", "1 + Math.floor(Math.random() * 6)", "Math.random() * 7", "Math.round(Math.random() * 6)"], "ans": 1, "exp": "نجمع رقم البداية (1) مع ناتج العشوائي مضروباً في عدد الاحتمالات (6)."},
-            {"q": "كيف نختار عنصراً عشوائياً من مصفوفة 'colors'؟", "opts": ["colors[Math.random()]", "Math.floor(Math.random() * colors.length)", "colors[Math.floor(Math.random() * colors.length)]", "Math.random(colors)"], "ans": 2, "exp": "نولد فهرساً عشوائياً باستخدام طول المصفوفة، ثم نمرر هذا الفهرس للمصفوفة."},
-            {"q": "ماذا يفعل الكود التالي؟<br><pre><code>Math.floor(Math.random());</code></pre>", "opts": ["ينتج رقم عشوائي كبير", "ينتج دائماً 1", "ينتج دائماً 0", "ينتج خطأ"], "ans": 2, "exp": "الرقم العشوائي دائماً أقل من 1. وبدون ضربه في عدد آخر، فإن تنزيله بـ floor سيعطي دائماً 0."},
-            {"q": "سؤال مركب: توقّع الناتج:<br><pre><code>let total = 0;<br>for (let n of [400, 200, 300]) {<br>  total += n;<br>}<br>if (total > 800) {<br>  console.log('Exceeded');<br>}</code></pre>", "opts": ["Exceeded", "No output", "900", "Error"], "ans": 0, "exp": "المجموع هو 400+200+300 = 900. الشرط 900 > 800 صحيح، فيُطبع 'Exceeded'."}
         ];
-        
-        let currentQIndex = 0;
+
+        let currentQuestionIndex = 0;
         let score = 0;
-        let selectedOption = null;
-        let isAnswered = false;
-
-        const screens = {
-            welcome: document.getElementById('welcome-screen'),
-            quiz: document.getElementById('quiz-screen'),
-            result: document.getElementById('result-screen')
-        };
-
-        const ui = {
-            qText: document.getElementById('q-text'),
-            optsContainer: document.getElementById('opts-container'),
-            nextBtn: document.getElementById('next-btn'),
-            feedback: document.getElementById('feedback'),
-            progress: document.getElementById('progress'),
-            qCounter: document.getElementById('q-counter'),
-            scoreCounter: document.getElementById('score-counter'),
-            finalScore: document.getElementById('final-score'),
-            certStudentName: document.getElementById('cert-student-name')
-        };
+        let userName = "";
+        let timerInterval;
+        let timeLeft = 45 * 60; // 45 minutes in seconds
+        let answered = false;
 
         function startQuiz() {
-            // التقاط اسم الطالب ووضعه في الشهادة
-            const inputName = document.getElementById('student-name-input').value.trim();
-            ui.certStudentName.textContent = inputName === "" ? "متدرب مبدع" : inputName;
-
-            screens.welcome.style.display = 'none';
-            screens.quiz.style.display = 'block';
+            const nameInput = document.getElementById("student-name").value.trim();
+            if(nameInput === "") {
+                alert("يرجى إدخال اسمك أولاً لبدء التحدي!");
+                return;
+            }
+            userName = nameInput;
+            document.getElementById("start-screen").classList.remove("active");
+            document.getElementById("quiz-screen").classList.add("active");
+            startTimer();
             loadQuestion();
         }
 
-        function loadQuestion() {
-            isAnswered = false;
-            selectedOption = null;
-            ui.nextBtn.textContent = 'تأكيد الإجابة';
-            ui.nextBtn.disabled = true;
-            ui.feedback.className = 'feedback-box';
-            
-            const q = questionsData[currentQIndex];
-            ui.qText.innerHTML = (currentQIndex + 1) + ". " + q.q;
-            
-            ui.optsContainer.innerHTML = '';
-            q.opts.forEach((opt, idx) => {
-                const lbl = document.createElement('label');
-                lbl.className = 'option-lbl';
-                lbl.innerHTML = `
-                    <input type="radio" name="option" value="${idx}" onchange="selectOption(${idx})">
-                    ${opt}
-                `;
-                ui.optsContainer.appendChild(lbl);
-            });
-
-            updateProgress();
-        }
-
-        function selectOption(idx) {
-            if (isAnswered) return;
-            selectedOption = idx;
-            ui.nextBtn.disabled = false;
-        }
-
-        function handleNext() {
-            if (!isAnswered) {
-                checkAnswer();
-            } else {
-                currentQIndex++;
-                if (currentQIndex < questionsData.length) {
-                    loadQuestion();
+        function startTimer() {
+            const timerEl = document.getElementById("timer");
+            timerInterval = setInterval(() => {
+                if(timeLeft <= 0) {
+                    clearInterval(timerInterval);
+                    endQuiz();
                 } else {
-                    showResult();
+                    timeLeft--;
+                    let m = Math.floor(timeLeft / 60);
+                    let s = timeLeft % 60;
+                    timerEl.innerText = `⏱️ ${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+                    if(timeLeft < 300) timerEl.style.color = "var(--danger)"; // الأحمر في آخر 5 دقائق
+                }
+            }, 1000);
+        }
+
+        function loadQuestion() {
+            answered = false;
+            document.getElementById("feedback-box").style.display = "none";
+            const q = questions[currentQuestionIndex];
+            
+            // Update Progress
+            const progress = ((currentQuestionIndex) / questions.length) * 100;
+            document.getElementById("progress-bar").style.width = progress + "%";
+            document.getElementById("question-counter").innerText = `السؤال: ${currentQuestionIndex + 1} / ${questions.length}`;
+
+            // Load Text
+            document.getElementById("question-text").innerText = q.q;
+            
+            // Load Code if exists
+            const codeContainer = document.getElementById("code-container");
+            if(q.code) {
+                document.getElementById("code-block").innerText = q.code;
+                codeContainer.style.display = "block";
+            } else {
+                codeContainer.style.display = "none";
+            }
+
+            // Load Options
+            const optionsGrid = document.getElementById("options-grid");
+            optionsGrid.innerHTML = "";
+            q.options.forEach((opt, index) => {
+                const btn = document.createElement("div");
+                btn.className = "option";
+                btn.innerText = opt;
+                btn.onclick = () => selectOption(index, btn);
+                optionsGrid.appendChild(btn);
+            });
+        }
+
+        function selectOption(selectedIndex, btnElement) {
+            if(answered) return;
+            answered = true;
+            
+            const q = questions[currentQuestionIndex];
+            const options = document.querySelectorAll(".option");
+            
+            // Highlight answers
+            if(selectedIndex === q.correct) {
+                btnElement.classList.add("correct");
+                score++;
+            } else {
+                btnElement.classList.add("wrong");
+                options[q.correct].classList.add("correct");
+            }
+
+            // Show feedback (The Trick)
+            document.getElementById("feedback-text").innerText = q.trick;
+            document.getElementById("feedback-box").style.display = "block";
+        }
+
+        function nextQuestion() {
+            if(!answered) {
+                alert("يجب اختيار إجابة قبل الانتقال للسؤال التالي!");
+                return;
+            }
+            currentQuestionIndex++;
+            if(currentQuestionIndex >= questions.length) {
+                endQuiz();
+            } else {
+                loadQuestion();
+            }
+        }
+
+        function endQuiz() {
+            clearInterval(timerInterval);
+            document.getElementById("quiz-screen").classList.remove("active");
+            document.getElementById("result-screen").classList.add("active");
+            
+            const percentage = Math.round((score / questions.length) * 100);
+            document.getElementById("final-score").innerText = percentage + "%";
+            
+            const msgEl = document.getElementById("result-message");
+            const certBtn = document.getElementById("cert-btn");
+            
+            if(percentage >= 70) {
+                document.getElementById("final-score").style.color = "var(--success)";
+                msgEl.innerText = "🎉 مبروك! لقد اجتزت محاكاة تصفيات توفاس بنجاح باهر. أنت مستعد للمنافسة العالمية!";
+                certBtn.style.display = "inline-block";
+            } else {
+                document.getElementById("final-score").style.color = "var(--danger)";
+                msgEl.innerText = "للأسف لم تجتز التحدي. درجة النجاح هي 70%. حاول دراسة التركات مرة أخرى!";
+            }
+        }
+
+        function showCertificate() {
+            document.getElementById("result-screen").classList.remove("active");
+            document.getElementById("certificate-screen").classList.add("active");
+            
+            document.getElementById("cert-name-display").innerText = userName;
+            const percentage = Math.round((score / questions.length) * 100);
+            document.getElementById("cert-score-display").innerText = percentage + "%";
+            
+            const today = new Date();
+            document.getElementById("cert-date").innerText = today.toLocaleDateString('en-GB');
+        }
+
+        // Particle JS Logic (Lightweight implementation for background)
+        function createParticles() {
+            const canvas = document.createElement('canvas');
+            document.getElementById('particles-js').appendChild(canvas);
+            const ctx = canvas.getContext('2d');
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+
+            let particlesArray = [];
+            const numberOfParticles = 80;
+
+            class Particle {
+                constructor() {
+                    this.x = Math.random() * canvas.width;
+                    this.y = Math.random() * canvas.height;
+                    this.size = Math.random() * 2 + 1;
+                    this.speedX = Math.random() * 1 - 0.5;
+                    this.speedY = Math.random() * 1 - 0.5;
+                }
+                update() {
+                    this.x += this.speedX;
+                    this.y += this.speedY;
+                    if (this.size > 0.2) this.size -= 0.01;
+                    if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+                    if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+                }
+                draw() {
+                    ctx.fillStyle = 'rgba(0, 229, 255, 0.5)';
+                    ctx.beginPath();
+                    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                    ctx.fill();
                 }
             }
-        }
 
-        function checkAnswer() {
-            isAnswered = true;
-            const q = questionsData[currentQIndex];
-            const labels = ui.optsContainer.querySelectorAll('.option-lbl');
-            const radios = ui.optsContainer.querySelectorAll('input');
-
-            // Disable all radios
-            radios.forEach(r => r.disabled = true);
-
-            if (selectedOption === q.ans) {
-                labels[selectedOption].classList.add('correct');
-                score++;
-                ui.feedback.innerHTML = "<strong>إجابة صحيحة! 👏</strong><br>" + q.exp;
-                ui.feedback.classList.add('show', 'correct-bg');
-            } else {
-                labels[selectedOption].classList.add('wrong');
-                labels[q.ans].classList.add('correct');
-                ui.feedback.innerHTML = "<strong>إجابة خاطئة! ❌</strong><br><em>الملاحظة/التركة:</em> " + q.exp;
-                ui.feedback.classList.add('show', 'wrong-bg');
+            function init() {
+                for (let i = 0; i < numberOfParticles; i++) {
+                    particlesArray.push(new Particle());
+                }
             }
 
-            ui.scoreCounter.textContent = `النقاط: ${score}`;
-            ui.nextBtn.textContent = currentQIndex === questionsData.length - 1 ? 'إنهاء الاختبار وإصدار الشهادة' : 'السؤال التالي';
-        }
-
-        function updateProgress() {
-            const percentage = ((currentQIndex) / questionsData.length) * 100;
-            ui.progress.style.width = percentage + '%';
-            ui.qCounter.textContent = `السؤال ${currentQIndex + 1} / ${questionsData.length}`;
-        }
-
-        function showResult() {
-            screens.quiz.style.display = 'none';
-            screens.result.style.display = 'block';
-            
-            const finalPercentage = Math.round((score / questionsData.length) * 100);
-            ui.finalScore.textContent = `${finalPercentage}% (${score} / ${questionsData.length})`;
-            
-            if(finalPercentage >= 80) {
-                ui.finalScore.style.color = "var(--success)";
-            } else if (finalPercentage >= 50) {
-                ui.finalScore.style.color = "#E5C158";
-            } else {
-                ui.finalScore.style.color = "var(--danger)";
+            function animate() {
+                ctx.clearRect(0, 0, canvas.width, canvas.height);
+                for (let i = 0; i < particlesArray.length; i++) {
+                    particlesArray[i].update();
+                    particlesArray[i].draw();
+                    
+                    // Connect lines
+                    for(let j = i; j < particlesArray.length; j++) {
+                        const dx = particlesArray[i].x - particlesArray[j].x;
+                        const dy = particlesArray[i].y - particlesArray[j].y;
+                        const distance = Math.sqrt(dx * dx + dy * dy);
+                        if(distance < 100) {
+                            ctx.beginPath();
+                            ctx.strokeStyle = `rgba(0, 123, 255, ${0.1 - distance/1000})`;
+                            ctx.lineWidth = 1;
+                            ctx.moveTo(particlesArray[i].x, particlesArray[i].y);
+                            ctx.lineTo(particlesArray[j].x, particlesArray[j].y);
+                            ctx.stroke();
+                        }
+                    }
+                }
+                requestAnimationFrame(animate);
             }
+            init();
+            animate();
         }
+
+        window.onload = createParticles;
     </script>
 </body>
 </html>
